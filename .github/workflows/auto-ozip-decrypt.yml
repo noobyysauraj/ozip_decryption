@@ -14,8 +14,8 @@ on:
     types: [started]
 
 env:
-  FIRMWARE_LINK: https://download.c.realme.com/flash/Rollbackpack/realme_narzo%2020/RMX2191_11_OTA_0190_all_nksxIPHHdisT.ozip #edit link here...
-  FIRMWARE_NAME: RMX2191_11_OTA_0190_all_nksxIPHHdisT.ozip  #edit file name here, you can find the name of file from link itself...
+  FIRMWARE_LINK: https://download.c.realme.com/osupdate/RMX1931EX_11_OTA_1380_all_fXURbL0BfKor.ozip #edit link here...
+  FIRMWARE_NAME: RMX1931EX_11_OTA_1380_all_fXURbL0BfKor.ozip  #edit file name here, you can find the name of file from link itself...
   FINAL_ZIP_NAME: THE_NAME_OF_ZIP_YOU_WANT.zip #This will be the name of final zip which will be uploaded. You can leave it unchanged.
   TZ: Asia/Kolkata
 
@@ -40,7 +40,8 @@ jobs:
              sudo -H pip install --upgrade pip
              sudo -H pip install setuptools wheel docopt pycryptodome
              wget https://raw.githubusercontent.com/techyminati/oppo_ozip_decrypt/master/ozipdecrypt.py
-             sudo python ozipdecrypt.py $FIRMWARE_NAME             
+             sudo python ozipdecrypt.py $FIRMWARE_NAME
+             zip -r http://rmx1931ex_11_ota_1380_all_fxurbl0bfkor.zip out #edit this filename
 
        - name: Upload Decrypted zip if AES keys not found.
          continue-on-error: true
